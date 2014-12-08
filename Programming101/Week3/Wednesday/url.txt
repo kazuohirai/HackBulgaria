@@ -1,1 +1,0 @@
-https://api.github.com/users/{}/following?client_id=700f78a9bcf3418d47ad&client_secret=762cd386f811c54fcef57c6bcf6cb6051dac802e
