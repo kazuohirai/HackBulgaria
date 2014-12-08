@@ -1,4 +1,6 @@
 HackBulgaria
 ============
 
-Tasks from HackBulgaria courses
+Tasks from HackBulgaria courses:
+
+Programming 101 - OOP, Git, UnitTesting, API, SQLAlchemy, VirtualEnv
