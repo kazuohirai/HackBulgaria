@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>TNG-Results</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style type="text/css">
+            body {
+                background-color: lightblue;
+            }
+
+            h1 {
+                color: navy;
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            #Disclaimer {
+                margin-top: 489px;
+                text-align: right;
+                margin-right: 130px;
+            }
+
+            li {
+                margin: 15px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The New Google</h1>
+        <p id="GenInfo">Better Than The Original...</p>
+
+        {% for list in links: %}
+            <li>
+                {{ list[0] }} - 
+                <a href="{{ list[1] }}">{{ list[1] }}</a>
+            </li>
+        {% endfor %}
+    </body>
+</html>
