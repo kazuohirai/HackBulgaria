@@ -1,5 +1,6 @@
 {
   "name": "Blog",
+  "main": "server.js",
   "version": "0.0.0",
   "homepage": "https://github.com/sslavov93/HackBulgaria",
   "license": "MIT",
@@ -9,5 +10,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0"
+  }
 }
