@@ -18,11 +18,9 @@ function checkInput (number) {
     return true;
 }
 
-
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
 
 function getRandFourDigit() {
     generated = "";
@@ -37,7 +35,6 @@ function getRandFourDigit() {
     return generated;
 } 
 
-
 function checkBulls(guess, actual) {
     guessStr = guess.toString();
     actualStr = actual.toString();
@@ -49,7 +46,6 @@ function checkBulls(guess, actual) {
     }
     return bulls;
 }
-
 
 function checkCows(guess, actual) {
     guessStr = guess.toString();
@@ -65,7 +61,6 @@ function checkCows(guess, actual) {
     return cows;
 }
 
-
 function checkNumber(guess, actual) {
     var bulls = checkBulls(guess, actual);
     var cows = checkCows(guess, actual) - bulls;
@@ -74,7 +69,6 @@ function checkNumber(guess, actual) {
     }
     console.log('Cows: ' + cows + '  Bulls: ' + bulls);
 }
-
 
 var answer = getRandFourDigit();
 console.log(answer);
@@ -97,6 +91,5 @@ function game(guess) {
         }
     });
 }
-
 
 game(answer);
