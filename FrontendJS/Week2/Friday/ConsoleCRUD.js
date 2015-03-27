@@ -130,5 +130,5 @@ function menu () {
 
 menu();
 // update по ID
-// load & save \JSONFILE\
+// load & save \JSONFILE\  WITH readfile/ writefile SYNC
 // search keyword
