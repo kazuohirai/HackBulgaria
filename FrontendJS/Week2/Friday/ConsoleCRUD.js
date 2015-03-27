@@ -129,6 +129,5 @@ function menu () {
 }
 
 menu();
-// update по ID
 // load & save \JSONFILE\  WITH readfile/ writefile SYNC
 // search keyword
