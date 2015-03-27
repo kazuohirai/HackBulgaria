@@ -60,7 +60,6 @@ var answer = pickRandomWord(wordlist);
 var mask = maskWord(answer)
 
 function game(guess) {
-    console.log(answer);
     displayWord(mask);
     var user_guess = require('prompt');
     user_guess.start();
@@ -69,7 +68,6 @@ function game(guess) {
         guess = result.Guess.toUpperCase();
         if (checkInput(guess)) {
             var places = checkOccurrence(guess, answer);
-            console.log(places);
             updateMask(mask, places, guess);
             if (checkMask(mask)) {
                 console.log("You guessed the word. It is '" + answer + "'");
