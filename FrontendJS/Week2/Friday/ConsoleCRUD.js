@@ -1,19 +1,4 @@
-var people = [
-    {
-        'ID': '001',
-        'Name': 'John',
-        'Email': 'appleseed@apple.com'
-    },
-    {
-        'ID': '002',
-        'Name': 'Steven',
-        'Email': 'jobs@apple.com'
-    },
-    {
-        'ID': '003',
-        'Name': 'Steve',
-        'Email': 'woz@apple.com'
-    }];
+var people = [];
 
 
 function display (people) {
@@ -69,6 +54,34 @@ function updateField (id, people, key, value) {
 }
 
 
+function saveToJSON (data, filename) {
+    var jf = require('jsonfile')
+    jf.writeFileSync(filename, data)
+}
+
+
+function loadFromJSON (filename) {
+    var jf = require('jsonfile')
+    var util = require('util')
+    return jf.readFileSync(filename);
+}
+
+function keywordSearch (keyword) {
+    display = false;
+    for (var person in people) {
+        for (var item in people[person]) {
+            if (people[person][item].indexOf(keyword) !== -1 ){
+                display = true;
+            }
+        }
+        if (display === true) {
+            console.log(people[person]);
+        }
+        display = false;
+    }
+} 
+
+
 function menu () {
     var command = require('prompt');
     command.start();
@@ -83,9 +96,9 @@ function menu () {
             var add = require('prompt');
             add.start();
             add.get(['ID', 'Name', 'Email'], function (err, result) {
-                addObject({'ID': result.ID,
-                     'Name': result.Name,
-                     'Email': result.email},people);
+                addObject({"ID": result.ID,
+                     "Name": result.Name,
+                     "Email": result.Email},people);
                 console.log('Information successfully added.');
                 menu()
             });
@@ -118,6 +131,32 @@ function menu () {
                 });
             });
             break;
+        case 'save':
+            var filename = require('prompt');
+            filename.start();
+            filename.get(['file'], function (err, result) {
+                saveToJSON(people, result.file);
+                people = [];    
+                menu();
+            });
+            break;
+        case 'load':
+            var filename = require('prompt');
+            filename.start();
+            filename.get(['file'], function (err, result) {
+                contents = loadFromJSON(result.file);
+                people = contents
+                menu();
+            });
+            break;
+        case 'search':
+            var searchword = require('prompt');
+            searchword.start();
+            searchword.get(['keyword'], function (err, result) {
+                keywordSearch(result.keyword);
+                menu();
+            });
+            break;
         case 'quit':
             console.log('Goodbye!')
             break;
@@ -129,5 +168,3 @@ function menu () {
 }
 
 menu();
-// load & save \JSONFILE\  WITH readfile/ writefile SYNC
-// search keyword
