@@ -61,3 +61,39 @@ Array.prototype.compact = function() {
     }
     return comp;
 }
+
+Array.prototype.take = function(elements) {
+    if (elements > this.length) {
+        return [];
+    } else {
+        return this.slice(0, elements)
+    }
+}
+
+Array.prototype.drop = function(elements) {
+    if (elements > this.length) {
+        return [];
+    } else {
+        return this.slice(elements, this.last())
+    }
+}
+
+Array.prototype.dedup = function() {
+    var unique = [];
+    for (var i = 0; i < this.length;i++){
+        if (unique.indexOf(this[i]) === -1){
+            unique.push(this[i]);
+        }
+    }
+    return unique;
+}
+
+Array.prototype.sample = function() {
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    return this[getRandomInt(0, this.length)];
+}
+console.log([1, 1, 1, 1, 1].dedup());
+console.log([1, 2, 1, 3, 2].dedup());
+console.log([1, 2, 3, 5, 4].dedup());
