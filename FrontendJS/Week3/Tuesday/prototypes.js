@@ -94,6 +94,3 @@ Array.prototype.sample = function() {
     }
     return this[getRandomInt(0, this.length)];
 }
-console.log([1, 1, 1, 1, 1].dedup());
-console.log([1, 2, 1, 3, 2].dedup());
-console.log([1, 2, 3, 5, 4].dedup());
